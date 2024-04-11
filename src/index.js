@@ -4,10 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import VoiceRecognition from './voiceRecognition/voice-to-speech';
+import ImageCapture from './faceRecognition/image-capture';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App></App>,
+    children:[
+      {
+        path:'/voicerecognition',
+        element:<VoiceRecognition></VoiceRecognition>
+      },
+      {
+        path:'/imagecapture',
+        element:<ImageCapture></ImageCapture>
+      }
+    ]
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
