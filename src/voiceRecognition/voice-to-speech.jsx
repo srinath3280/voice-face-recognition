@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const SpeechRecognition = () => {
   const [spokenWords, setSpokenWords] = useState([]);
-  const [recognizedWords, setRecognizedWords] = useState([]);
+  const [recognizedWords, setRecognizedWords] = useState();
   const [isListening, setIsListening] = useState(false);
-  const predefinedWords = ["banana", "orange", "grape"];
+  const predefinedWords = "english is a very popular language that is spoken all around the world";
+  const splitText = predefinedWords.split(" ");
 
   useEffect(() => {
     const recognition = new window.webkitSpeechRecognition();
@@ -35,7 +36,7 @@ const SpeechRecognition = () => {
 
     if (isListening) {
       recognition.start();
-    } 
+    }
     else {
       recognition.stop();
     }
@@ -47,15 +48,15 @@ const SpeechRecognition = () => {
 
   useEffect(() => {
     const newRecognizedWords = spokenWords.map((word) => {
-      if (predefinedWords.includes(word)) {
+      if (splitText.includes(word.toLowerCase())) {
         return <span style={{ color: 'green' }}>{word}&nbsp;</span>;
-      } 
+      }
       else {
         return <span style={{ color: 'red' }}>{word}&nbsp;</span>;
       }
     });
     setRecognizedWords(newRecognizedWords);
-  }, [spokenWords, predefinedWords]);
+  }, [spokenWords, splitText]);
 
   const toggleListening = () => {
     setIsListening(!isListening);
@@ -66,6 +67,11 @@ const SpeechRecognition = () => {
       <button onClick={toggleListening}>
         {isListening ? 'Stop Listening' : 'Start Listening'}
       </button>
+      <div>
+        <p>
+          English is a very popular language that is spoken all around the world
+        </p>
+      </div>
       <div>
         <p>Spoken Words:</p>
         {spokenWords.map((word, index) => (
