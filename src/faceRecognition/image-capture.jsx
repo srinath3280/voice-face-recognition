@@ -9,8 +9,8 @@ const ImageCapture = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             const imageSrc1 = webcamRef.current.getScreenshot();
-            setImageSrc(imageSrc1)
-        }, 1000);
+            setImageSrc(imageSrc1);
+        }, 5000);
         return () => clearInterval(interval);
     }, [])
 

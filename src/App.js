@@ -4,7 +4,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Link to='/'>Home</Link> <br></br>
+      <Link to='/'>Home</Link><br></br>
+      <Link to='/login'>Login</Link><br></br>
+      <Link to='/register'>Register</Link><br></br>
       <Link to='/voicerecognition'>Voice Recognition</Link><br></br>
       <Link to='/imagecapture'>Image Capture</Link>
       <Outlet></Outlet>

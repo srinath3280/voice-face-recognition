@@ -10,12 +10,22 @@ import {
 } from "react-router-dom";
 import VoiceRecognition from './voiceRecognition/voice-to-speech';
 import ImageCapture from './faceRecognition/image-capture';
+import Login from './authenticate/login';
+import Register from './authenticate/register';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
     children:[
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>
+      },
       {
         path:'/voicerecognition',
         element:<VoiceRecognition></VoiceRecognition>
