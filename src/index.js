@@ -12,6 +12,7 @@ import VoiceRecognition from './voiceRecognition/voice-to-speech';
 import ImageCapture from './faceRecognition/image-capture';
 import Login from './authenticate/login';
 import Register from './authenticate/register';
+import SpeechRecognition from './voiceRecognition/matchingWords';
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,12 @@ const router = createBrowserRouter([
         element:<Register></Register>
       },
       {
-        path:'/voicerecognition',
+        path:'/speechtotext',
         element:<VoiceRecognition></VoiceRecognition>
+      },
+      {
+        path:'/voicerecognition',
+        element:<SpeechRecognition></SpeechRecognition>
       },
       {
         path:'/imagecapture',
