@@ -1,0 +1,8 @@
+{
+    "paths": [
+      "face_recognition_model-shard1"
+    ],
+    "weightsType": "Float32Array",
+    "withCredentials": false
+  }
+  
